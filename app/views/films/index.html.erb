@@ -1,0 +1,47 @@
+
+<% content_for :title do %>
+  Filmes
+<% end %>
+
+<br>
+<br>
+
+<div class="columns is-centered">
+  <%= form_with(url: '/films', method: 'get', local: true) do %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Procurar") %>
+  <% end %>
+</div>
+
+<div class="columns mt-6 is-centered">
+
+  
+
+    <% @films.each do |film| %>
+        <div class="column is-one-quarter">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title"><%= film.name %></p>
+            </header>
+            <div class="card-content">  
+              <div class="content">                    
+                <span class="has-text-weight-bold">Ano de lançamento: </span><%= film.launch_year %><p></p>
+                <span class="has-text-weight-bold">Sinopse: </span><%= film.sinopse %><p></p>
+                <span class="has-text-weight-bold">Diretor: </span><%= film.director %><p></p>
+                <span class="has-text-weight-bold">Avaliação: </span><%= film.rating %><p></p>
+              </div>                
+            </div>
+            <div class="card-footer">
+              <%= link_to 'Detalhes', film, class: "card-footer-item" %>
+              <%= link_to 'Editar', edit_film_path(film), class: "card-footer-item" %>
+              <%= link_to 'Deletar', film, method: :delete, data: { confirm: 'Tem certeza?' }, class: "card-footer-item" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+</div>
+
+<div class="columns is-centered mt-6">
+
+
+</div>

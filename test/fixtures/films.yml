@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+filme1:
+  name: "Esqueceram de mim"
+  launch_year: 1995
+  sinopse: "Esqueceram uma criança"
+  director: "aaa"
+  rating: 1.5
+
+filme2:
+  name: "Poderoso chegão"
+  launch_year: 1970
+  sinopse: "Máfia"
+  director: "Coppolla"
+  rating: 5.0

@@ -1,0 +1,46 @@
+<%= form_with(model: film) do |form| %>
+  <% if film.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+      <p><%= pluralize(film.errors.count, "error") %> não permitiu a gravação do filme:</p>
+      </div>
+
+      <div class="message-body">
+        <ul>
+          <% film.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ano_de_lançamento, class: "label" %>
+    <%= form.number_field :launch_year, class: "input"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sinopse, class: "label" %>
+    <%= form.text_area :sinopse, class: "input"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diretor, class: "label" %>
+    <%= form.text_field :director, class: "input"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avaliação, class: "label" %>
+    <%= form.text_field :rating, class: "input"  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button is-success" %>
+  </div>
+<% end %>
